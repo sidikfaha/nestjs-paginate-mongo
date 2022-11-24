@@ -9,7 +9,7 @@ To paginate items, you just need to call the function and pass the query as para
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { paginate } from 'src/common/helpers/pagination';
+import { paginate } from 'nestjs-paginate-mongo';
 import { Post, PostDocument } from './entities/post.entity';
 
 @Injectable()
