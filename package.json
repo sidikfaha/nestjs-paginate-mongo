@@ -1,6 +1,6 @@
 {
   "name": "nestjs-paginate-mongo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "author": "Aboubakar Sidik Faha <joefaha1@gmail.com>",
   "repository": "https://github.com/sidikfaha/nestjs-paginate-mongo",
