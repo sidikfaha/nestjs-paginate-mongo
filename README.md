@@ -1,3 +1,8 @@
+<p align="center">
+  <a href="https://www.npmjs.com/package/nestjs-paginate-mongo"><img src="https://img.shields.io/npm/dm/nestjs-paginate-mongo.svg" alt="Total Downloads"></a>
+  <a href="https://www.npmjs.com/package/nestjs-paginate-mongo"><img src="https://img.shields.io/npm/v/nestjs-paginate-mongo.svg" alt="Latest Stable Version"></a>
+</p>
+
 # Nestjs Paginate Mongo
 
 A simple and fast way to paginate your mongoose query results on Nestjs
