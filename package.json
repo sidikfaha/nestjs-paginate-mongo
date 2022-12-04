@@ -1,6 +1,6 @@
 {
   "name": "nestjs-paginate-mongo",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "author": "Aboubakar Sidik Faha <joefaha1@gmail.com>",
   "repository": "https://github.com/sidikfaha/nestjs-paginate-mongo",
@@ -14,5 +14,11 @@
     "lodash": "^4.17.21",
     "mongoose": "^6.7.3"
   },
-  "keywords": ["mongoDB", "nestjs", "pagination", "typescript", "mongoose"]
+  "keywords": [
+    "mongoDB",
+    "nestjs",
+    "pagination",
+    "typescript",
+    "mongoose"
+  ]
 }
