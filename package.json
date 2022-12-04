@@ -6,6 +6,10 @@
   "repository": "https://github.com/sidikfaha/nestjs-paginate-mongo",
   "license": "MIT",
   "types": "./dist/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "mv src/ ../",
+    "postpublish": "mv ../src ."
+  },
   "devDependencies": {
     "@types/lodash": "^4.14.190",
     "typescript": "^4.9.3"
@@ -14,5 +18,11 @@
     "lodash": "^4.17.21",
     "mongoose": "^6.7.3"
   },
-  "keywords": ["mongoDB", "nestjs", "pagination", "typescript", "mongoose"]
+  "keywords": [
+    "mongoDB",
+    "nestjs",
+    "pagination",
+    "typescript",
+    "mongoose"
+  ]
 }
