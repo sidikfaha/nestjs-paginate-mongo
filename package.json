@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "mongoose": "^6.7.3"
+    "mongoose": "^7.4.1"
   },
   "keywords": [
     "mongoDB",
