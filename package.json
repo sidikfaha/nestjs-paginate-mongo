@@ -7,7 +7,7 @@
   "license": "MIT",
   "types": "./dist/index.d.ts",
   "devDependencies": {
-    "@types/lodash": "^4.14.197",
+    "@types/lodash": "^4.14.198",
     "typescript": "^5.2.2"
   },
   "dependencies": {
