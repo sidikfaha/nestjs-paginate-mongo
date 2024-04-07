@@ -1,5 +1,5 @@
-import { clone } from 'lodash';
-import { Query } from 'mongoose';
+import { clone } from "lodash";
+import { Query } from "mongoose";
 
 export interface PaginationOptions {
   perPage?: number;
@@ -16,17 +16,21 @@ const defaultOptions: PaginationOptions = { perPage: 10, page: 1 };
  */
 export const paginate = async <T>(
   query: Query<any, T>,
-  options: PaginationOptions = defaultOptions,
+  { perPage = 15, page = 1 }: PaginationOptions = defaultOptions
 ) => {
-  const { perPage, page } = options;
   const _query = clone(query);
+  const _perPage = typeof perPage === "number" ? perPage : 15;
+  const _page = typeof page === "number" ? page : 1;
 
-  const total = await _query.count().exec();
+  const total = await _query.countDocuments().exec();
   const lastPage = Math.ceil(total / perPage!);
   const data = await query
     .limit(perPage!)
     .skip(perPage! * (page! - 1))
     .exec();
 
-  return { data, metadata: { total, perPage, page, lastPage } };
+  return {
+    data,
+    metadata: { total, perPage: _perPage, page: _page, lastPage },
+  };
 };

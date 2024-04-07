@@ -14,32 +14,16 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: "20.11.1"
       - name: Building
         run: |
           yarn
           yarn tsc
-      - name: Archive project artifact
-        uses: actions/upload-artifact@v3
-        with:
-          path: dist
-          retention-days: 1
-          name: project-artifact
+      - name: Publish to NPM
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > ~/.npmrc
+          npm publish
+      - name: Cleanup
+        run: |
+          rm ~/.npmrc
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Downloading artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: project-artifact
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - name: Publishing to npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
