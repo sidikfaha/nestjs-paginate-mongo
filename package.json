@@ -8,7 +8,7 @@
   "types": "./dist/index.d.ts",
   "devDependencies": {
     "@types/lodash": "^4.17.6",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.3"
   },
   "dependencies": {
     "lodash": "^4.17.21",
