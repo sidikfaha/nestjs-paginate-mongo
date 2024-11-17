@@ -6,6 +6,16 @@ export interface PaginationOptions {
   page?: number;
 }
 
+export interface PaginatedResult<T> {
+  data: T[];
+  metadata: {
+    total: number;
+    perPage: number;
+    page: number;
+    lastPage: number;
+  };
+}
+
 const defaultOptions: PaginationOptions = { perPage: 10, page: 1 };
 
 /**
@@ -16,11 +26,10 @@ const defaultOptions: PaginationOptions = { perPage: 10, page: 1 };
  */
 export const paginate = async <T>(
   query: Query<any, T>,
-  { perPage = 15, page = 1 }: PaginationOptions = defaultOptions
-) => {
+  options: PaginationOptions = defaultOptions
+): Promise<PaginatedResult<T>> => {
   const _query = clone(query);
-  const _perPage = typeof perPage === "number" ? perPage : 15;
-  const _page = typeof page === "number" ? page : 1;
+  const { perPage = 15, page = 1 } = options;
 
   const total = await _query.countDocuments().exec();
   const lastPage = Math.ceil(total / perPage!);
@@ -31,6 +40,6 @@ export const paginate = async <T>(
 
   return {
     data,
-    metadata: { total, perPage: _perPage, page: _page, lastPage },
+    metadata: { total, perPage, page, lastPage },
   };
 };
